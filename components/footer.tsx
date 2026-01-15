@@ -2,7 +2,7 @@ export function Footer() {
   return (
     <footer className="border-t bg-background" id="contact">
       <div className="container px-4 py-12 md:px-6 md:py-16">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
           <div className="flex flex-col gap-4">
             <div className="text-lg font-semibold">Fatouma N Ali</div>
             <p className="text-sm text-muted-foreground">
@@ -24,5 +24,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
