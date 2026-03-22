@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import { Mona_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { ConvexClientProvider } from "./providers/convex-client-provider";
 
 const monaSans = Mona_Sans({ subsets: ["latin"] });
 export const metadata: Metadata = {
@@ -37,7 +40,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans antialiased ${monaSans.className}`}>
-        {children}
+        <Header />
+        <ConvexClientProvider>{children}</ConvexClientProvider>
+        <Footer />
         <Analytics />
       </body>
     </html>
