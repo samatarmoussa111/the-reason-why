@@ -19,5 +19,5 @@ export type Book = {
   }[];
   description: string;
   pages: number;
-  fileUrl: string;
+  fileStorageId: Id<"_storage">;
 };
