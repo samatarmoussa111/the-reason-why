@@ -25,8 +25,7 @@ export default defineSchema({
     stripeProductId: v.optional(v.string()),
     stripePriceId: v.optional(v.string()),
     // trouver une solution pour stocker le contenu du livre, peut-être un champ fileUrl qui pointe vers un fichier stocké dans Convex Storage ou un service externe
-    fileUrl: v.string(),
-
+    fileStorageId: v.id("_storage"),
     coverImageUrl: v.optional(v.string()),
   }),
 });
