@@ -13,16 +13,7 @@ export default function SuccessPage() {
     sessionId ? { sessionId } : "skip",
   );
   if (!url) {
-    return (
-      <main className="min-h-screen flex items-center justify-center bg-background px-4">
-        <div className="flex flex-col items-center gap-4">
-          <div className="w-12 h-12 rounded-full border-2 border-muted border-t-foreground animate-spin" />
-          <p className="text-muted-foreground text-sm font-medium tracking-wide">
-            Preparing your download...
-          </p>
-        </div>
-      </main>
-    );
+    return <p> Loading...</p>;
   }
 
   return (
