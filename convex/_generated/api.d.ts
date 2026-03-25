@@ -9,6 +9,9 @@
  */
 
 import type * as books from "../books.js";
+import type * as http from "../http.js";
+import type * as purchases from "../purchases.js";
+import type * as stripe from "../stripe.js";
 
 import type {
   ApiFromModules,
@@ -18,6 +21,9 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   books: typeof books;
+  http: typeof http;
+  purchases: typeof purchases;
+  stripe: typeof stripe;
 }>;
 
 /**

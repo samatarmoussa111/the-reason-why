@@ -14,12 +14,23 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Book } from "@/lib/books";
+import { useAction } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { useRouter } from "next/navigation";
 
 interface BookDetailsProps {
   book: Book;
 }
 
 export function BookDetails({ book }: BookDetailsProps) {
+  const pay = useAction(api.stripe.pay);
+  const router = useRouter();
+
+  const handleBuy = async () => {
+    const url = await pay({ bookId: book._id });
+    if (!url) return;
+    router.push(url);
+  };
   const formattedPrice = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -116,7 +127,11 @@ export function BookDetails({ book }: BookDetailsProps) {
                   {formattedPrice}
                 </p>
               </div>
-              <Button size="lg" className="gap-2 px-8">
+              <Button
+                size="lg"
+                className="gap-2 px-8 cursor-pointer"
+                onClick={handleBuy}
+              >
                 <ShoppingCart className="h-5 w-5" />
                 Buy Now
               </Button>
@@ -162,7 +177,11 @@ export function BookDetails({ book }: BookDetailsProps) {
                 Join the {book.reviewsCount} readers who have already changed
                 their lives with this book.
               </p>
-              <Button size="lg" className="gap-2">
+              <Button
+                size="lg"
+                className="gap-2 cursor-pointer"
+                onClick={handleBuy}
+              >
                 <ShoppingCart className="h-5 w-5" />
                 Get the book for {formattedPrice}
               </Button>

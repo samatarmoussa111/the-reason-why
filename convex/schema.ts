@@ -28,4 +28,10 @@ export default defineSchema({
     fileStorageId: v.id("_storage"),
     coverImageUrl: v.optional(v.string()),
   }),
+  purchases: defineTable({
+    email: v.string(), // email de l'acheteur (venu de Stripe)
+    bookId: v.id("books"), // id du livre acheté
+    sessionId: v.string(),
+    paid: v.boolean(), // true si paiement confirmé
+  }),
 });
