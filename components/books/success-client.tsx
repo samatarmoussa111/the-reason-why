@@ -8,7 +8,7 @@ export default function SuccessClient({ sessionId }: { sessionId?: string }) {
     api.purchases.getDownloadUrl,
     sessionId ? { sessionId } : "skip",
   );
-
+  console.log("url de la vente", url);
   if (!url) return <p>Loading...</p>;
 
   return (
