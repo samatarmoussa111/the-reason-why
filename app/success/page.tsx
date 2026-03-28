@@ -1,9 +1,11 @@
 import SuccessClient from "@/components/books/success-client";
 
-export default function Page({
+export default async function Page({
   searchParams,
 }: {
-  searchParams: { session_id?: string };
+  searchParams: Promise<{ session_id?: string }>;
 }) {
-  return <SuccessClient sessionId={searchParams.session_id} />;
+  const params = await searchParams;
+
+  return <SuccessClient sessionId={params.session_id} />;
 }

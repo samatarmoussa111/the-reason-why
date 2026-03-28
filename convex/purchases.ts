@@ -29,11 +29,14 @@ export const getDownloadUrl = query({
       .first();
 
     if (!purchase) throw new Error("Unauthorized");
-
+    console.log("purchase", purchase);
     const book = await ctx.db.get(purchase.bookId);
+    console.log("book", book);
 
     if (!book) throw new Error("Book not found");
+    const url = await ctx.storage.getUrl(book.fileStorageId);
+    console.log("url du book", url);
 
-    return await ctx.storage.getUrl(book.fileStorageId);
+    return url;
   },
 });
