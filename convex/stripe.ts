@@ -5,24 +5,37 @@ import { Id } from "./_generated/dataModel";
 import { api } from "./_generated/api";
 
 export const pay = action({
-  args: { bookId: v.id("books") },
+  args: {
+    bookId: v.id("books"),
+    items: v.array(
+      v.object({
+        priceId: v.string(),
+        quantity: v.number(),
+      }),
+    ),
+  },
   handler: async (ctx, args) => {
     const stripe = new Stripe(process.env.NEXT_STRIPE_SECRET_KEY!, {
       apiVersion: "2026-02-25.clover",
     });
+
     const domain = process.env.NEXT_PUBLIC_URL!;
+
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      line_items: [{ price: process.env.NEXT_STRIPE_PRICE_ID, quantity: 1 }],
-      success_url: `${process.env.NEXT_PUBLIC_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+
+      line_items: args.items.map((item) => ({
+        price: item.priceId,
+        quantity: item.quantity,
+      })),
+
+      success_url: `${domain}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${domain}/books`,
-      metadata: { bookId: args.bookId },
     });
 
     return session.url;
   },
 });
-
 type Metadata = {
   bookId: Id<"books">;
 };
