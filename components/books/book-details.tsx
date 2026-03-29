@@ -27,7 +27,10 @@ export function BookDetails({ book }: BookDetailsProps) {
   const router = useRouter();
 
   const handleBuy = async () => {
-    const url = await pay({ bookId: book._id });
+    const url = await pay({
+      bookId: book._id,
+      price: book.stripePriceId || "",
+    });
     if (!url) return;
     router.push(url);
   };

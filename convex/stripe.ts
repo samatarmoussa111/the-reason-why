@@ -5,7 +5,7 @@ import { Id } from "./_generated/dataModel";
 import { api } from "./_generated/api";
 
 export const pay = action({
-  args: { bookId: v.id("books") },
+  args: { bookId: v.id("books"), price: v.string() },
   handler: async (ctx, args) => {
     const stripe = new Stripe(process.env.NEXT_STRIPE_SECRET_KEY!, {
       apiVersion: "2026-02-25.clover",
@@ -13,7 +13,7 @@ export const pay = action({
     const domain = process.env.NEXT_PUBLIC_URL!;
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      line_items: [{ price: process.env.NEXT_STRIPE_PRICE_ID, quantity: 1 }],
+      line_items: [{ price: args.price, quantity: 1 }],
       success_url: `${process.env.NEXT_PUBLIC_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${domain}/books`,
       metadata: { bookId: args.bookId },
