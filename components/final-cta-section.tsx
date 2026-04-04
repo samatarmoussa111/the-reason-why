@@ -25,8 +25,10 @@ export function FinalCtaSection() {
                   className="text-lg px-10 py-7 rounded-full shadow-lg hover:shadow-xl transition-all group"
                   asChild
                 >
-                  <Link href="/books">View all Books</Link>
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <Link href="/books" className="flex items-center">
+                    <span>View all books</span>
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
                 </Button>
               </div>
               <p className="text-sm text-muted-foreground">
