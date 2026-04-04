@@ -20,4 +20,5 @@ export type Book = {
   description: string;
   pages: number;
   fileStorageId: Id<"_storage">;
+  chaptersNumber?: number | undefined;
 };

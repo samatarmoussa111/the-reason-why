@@ -116,7 +116,7 @@ export function BookDetails({ book }: BookDetailsProps) {
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <BookOpen className="h-5 w-5 text-primary" />
-                <span>{book.chapters.length} chapters</span>
+                <span>{book.chaptersNumber} chapters</span>
               </div>
             </div>
 

@@ -21,6 +21,7 @@ export default defineSchema({
         description: v.string(),
       }),
     ),
+    chaptersNumber: v.optional(v.number()),
     // Stripe fields
     stripeProductId: v.optional(v.string()),
     stripePriceId: v.optional(v.string()),
