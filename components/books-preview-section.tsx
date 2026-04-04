@@ -23,7 +23,7 @@ export function BooksPreviewSection() {
   }
 
   // 👉 On prend seulement les 3 premiers pour le preview
-  const previewBooks = books.slice(0, 3);
+  const previewBooks = books.filter((_, index) => index !== 1).slice(0, 3);
 
   return (
     <section className="py-24 md:py-32">
