@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { HeartHandshake, Users, Lightbulb } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card";
+import { HeartHandshake, Users, Lightbulb } from "lucide-react";
 
 export function WhyMatterSection() {
   const audiences = [
@@ -18,7 +18,7 @@ export function WhyMatterSection() {
       title: "For Anyone",
       description: "Struggling to remain hopeful during difficult times",
     },
-  ]
+  ];
 
   return (
     <section className="py-24 md:py-32 bg-muted/30">
@@ -35,7 +35,7 @@ export function WhyMatterSection() {
 
           <div className="grid gap-6 md:grid-cols-3">
             {audiences.map((audience, index) => {
-              const Icon = audience.icon
+              const Icon = audience.icon;
               return (
                 <Card
                   key={index}
@@ -47,22 +47,26 @@ export function WhyMatterSection() {
                     </div>
                     <div className="space-y-2">
                       <h3 className="text-2xl font-bold">{audience.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{audience.description}</p>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {audience.description}
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
-              )
+              );
             })}
           </div>
 
           <div className="bg-card border rounded-2xl p-8 md:p-12 shadow-sm text-center">
             <p className="text-xl md:text-2xl leading-relaxed text-foreground font-medium text-pretty">
-              The Reason Why is not just a story of survival — it is a call to rise, heal, and move forward with
-              strength and faith.
+              To empower people who live between cultures and identities through
+              storytelling, education, and community connection. Every book is
+              written with heart, honesty, and a deep belief in the strength of
+              every person’s journey.
             </p>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

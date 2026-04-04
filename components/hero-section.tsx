@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Sparkles } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -11,8 +12,12 @@ export function HeroSection() {
         <div className="mx-auto max-w-5xl">
           {/* Badge */}
           <div className="flex justify-center mb-8">
-            <Badge variant="secondary" className="px-4 py-2 text-sm font-medium">
-              <Sparkles className="h-3.5 w-3.5 mr-2" />A True Story of Resilience
+            <Badge
+              variant="secondary"
+              className="px-4 py-2 text-sm font-medium"
+            >
+              <Sparkles className="h-3.5 w-3.5 mr-2" />A True Story of
+              Resilience
             </Badge>
           </div>
 
@@ -23,33 +28,30 @@ export function HeroSection() {
 
           {/* Subheading */}
           <p className="mt-6 text-xl md:text-2xl lg:text-3xl text-center text-muted-foreground max-w-3xl mx-auto text-balance">
-            From hardship to hope. A memoir of cultural barriers, faith, and the strength to survive.
+            From hardship to hope. A memoir of cultural barriers, faith, and the
+            strength to survive.
           </p>
 
           {/* Quote Section */}
           <div className="mt-16 bg-card border rounded-2xl p-8 md:p-12 shadow-sm">
             <blockquote className="space-y-6">
-              <p className="text-lg md:text-xl text-foreground/90 italic text-pretty leading-relaxed">
-                "Life is not meant to be endless joy. It requires perseverance, effort, and devotion to Allah."
-              </p>
-              <p className="text-lg md:text-xl text-foreground/90 italic text-pretty leading-relaxed">
-                "Never give up — no matter how difficult life becomes — until your last breath."
-              </p>
+              Fatouma Resilience is a space dedicated to mothers, immigrants,
+              multicultural families, and anyone navigating life between worlds.
+              Through powerful storytelling and lived experience, Fatouma Ali
+              shares books that bring hope, healing, and strength to readers
+              everywhere. Explore her collection below and discover stories that
+              honor identity, resilience, and the courage to rise.
             </blockquote>
           </div>
 
           {/* CTA */}
           <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="text-lg px-10 py-7 rounded-full shadow-lg hover:shadow-xl transition-all">
-              Buy the eBook – The Reason Why
-            </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="text-lg px-10 py-7 rounded-full bg-transparent"
-              onClick={() => document.getElementById("book")?.scrollIntoView({ behavior: "smooth" })}
+              className="text-lg px-10 py-7 rounded-full shadow-lg hover:shadow-xl transition-all"
+              asChild
             >
-              Learn More
+              <Link href="/books">View Books</Link>
             </Button>
           </div>
 
@@ -57,15 +59,21 @@ export function HeroSection() {
           <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
             <div className="text-center space-y-2">
               <div className="text-4xl md:text-5xl font-bold">20+</div>
-              <div className="text-sm md:text-base text-muted-foreground">Years of Resilience</div>
+              <div className="text-sm md:text-base text-muted-foreground">
+                Years of Resilience
+              </div>
             </div>
             <div className="text-center space-y-2">
               <div className="text-4xl md:text-5xl font-bold">Multiple</div>
-              <div className="text-sm md:text-base text-muted-foreground">Countries & Cultures</div>
+              <div className="text-sm md:text-base text-muted-foreground">
+                Countries & Cultures
+              </div>
             </div>
             <div className="text-center space-y-2">
               <div className="text-4xl md:text-5xl font-bold">1</div>
-              <div className="text-sm md:text-base text-muted-foreground">Inspiring True Story</div>
+              <div className="text-sm md:text-base text-muted-foreground">
+                Inspiring True Story
+              </div>
             </div>
           </div>
         </div>
@@ -78,5 +86,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
