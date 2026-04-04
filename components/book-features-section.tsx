@@ -1,5 +1,5 @@
-import { BookOpen, Heart, Users, Sparkles, Shield } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
+import { BookOpen, Heart, Users, Sparkles, Shield } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 export function BookFeaturesSection() {
   const features = [
@@ -11,12 +11,14 @@ export function BookFeaturesSection() {
     {
       icon: Shield,
       title: "Raw & Honest",
-      description: "Honest reflections on racism, discrimination, and injustice",
+      description:
+        "Honest reflections on racism, discrimination, and injustice",
     },
     {
       icon: Users,
       title: "Cultural Insight",
-      description: "Insight into the oppression faced by women in many African societies",
+      description:
+        "Insight into the oppression faced by women in many African societies",
     },
     {
       icon: Heart,
@@ -28,7 +30,7 @@ export function BookFeaturesSection() {
       title: "Transformative Journey",
       description: "A journey of healing, faith, and self-empowerment",
     },
-  ]
+  ];
 
   return (
     <section className="py-24 md:py-32 bg-muted/30">
@@ -36,7 +38,7 @@ export function BookFeaturesSection() {
         <div className="mx-auto max-w-6xl">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-balance">
-              What You'll Discover
+              What You&apos;ll Discover
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Five powerful themes woven throughout this transformative memoir
@@ -45,7 +47,7 @@ export function BookFeaturesSection() {
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {features.map((feature, index) => {
-              const Icon = feature.icon
+              const Icon = feature.icon;
               return (
                 <Card
                   key={index}
@@ -57,15 +59,17 @@ export function BookFeaturesSection() {
                     </div>
                     <div className="space-y-2">
                       <h3 className="text-xl font-bold">{feature.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {feature.description}
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
-              )
+              );
             })}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
