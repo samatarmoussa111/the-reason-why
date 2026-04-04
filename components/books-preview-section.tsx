@@ -85,7 +85,7 @@ export function BooksPreviewSection() {
           <div className="flex justify-center">
             <Button asChild size="lg" variant="outline" className="group px-8">
               <Link href="/books">
-                Voir tous les livres
+                View All Books
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
