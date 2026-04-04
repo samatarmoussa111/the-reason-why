@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Download, ArrowRight } from "lucide-react";
-
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 export function FinalCtaSection() {
   return (
     <section className="relative py-24 md:py-32 overflow-hidden">
@@ -23,9 +23,9 @@ export function FinalCtaSection() {
                 <Button
                   size="lg"
                   className="text-lg px-10 py-7 rounded-full shadow-lg hover:shadow-xl transition-all group"
+                  asChild
                 >
-                  <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-                  Buy the eBook
+                  <Link href="/books">View all Books</Link>
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
