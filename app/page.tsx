@@ -1,3 +1,4 @@
+"use client";
 import { HeroSection } from "@/components/hero-section";
 import { BookFeaturesSection } from "@/components/book-features-section";
 import { AboutAuthorSection } from "@/components/about-author-section";
