@@ -35,4 +35,19 @@ export default defineSchema({
     sessionId: v.string(),
     paid: v.boolean(), // true si paiement confirmé
   }),
+  reviews: defineTable({
+    bookId: v.id("books"),
+    name: v.string(),
+    email: v.string(), // usage interne uniquement, jamais affiché publiquement
+    rating: v.number(), // 1 à 5
+    comment: v.string(),
+    status: v.union(
+      v.literal("pending"),
+      v.literal("approved"),
+      v.literal("rejected"),
+    ),
+  })
+    .index("by_book", ["bookId"])
+    .index("by_status", ["status"])
+    .index("by_book_status", ["bookId", "status"]),
 });

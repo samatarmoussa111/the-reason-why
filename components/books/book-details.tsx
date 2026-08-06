@@ -1,18 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import {
-  Star,
-  BookOpen,
-  FileText,
-  ShoppingCart,
-  ArrowLeft,
-} from "lucide-react";
+import { BookOpen, FileText, ShoppingCart, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { StarRating } from "@/components/ui/star-rating";
+import { BookReviewsSection } from "@/components/books/book-reviews-section";
 import { Book } from "@/lib/books";
 import { useAction } from "convex/react";
 import { api } from "@/convex/_generated/api";
@@ -83,18 +79,7 @@ export function BookDetails({ book }: BookDetailsProps) {
 
             {/* Rating */}
             <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`h-5 w-5 ${
-                      i < Math.floor(book.rating || 0)
-                        ? "fill-primary text-primary"
-                        : "fill-muted text-muted"
-                    }`}
-                  />
-                ))}
-              </div>
+              <StarRating rating={book.rating || 0} />
               <span className="font-semibold text-foreground">
                 {book.rating}
               </span>
@@ -168,6 +153,8 @@ export function BookDetails({ book }: BookDetailsProps) {
             ))}
           </div>
         </section>
+
+        <BookReviewsSection bookId={book._id} />
 
         {/* CTA Section */}
         <section className="mt-16 mb-8">
